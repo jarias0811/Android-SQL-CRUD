@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
     //Metodo que invoca al metodo de listar estudiantes en el dal
     public void readRecords() {
-
         LinearLayout linearLayoutRecords = (LinearLayout) findViewById(R.id.linearLayoutRecords);
         linearLayoutRecords.removeAllViews();
 
@@ -109,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                                         Toast.makeText(context, "Unable to save student information.", Toast.LENGTH_SHORT).show();
                                     }
                                     countRecords();
-                                    ((MainActivity) context).readRecords();
+                                    readRecords();
                                     dialog.cancel();
                                 }
                             }).show();
@@ -137,14 +136,13 @@ public class MainActivity extends AppCompatActivity {
 
                                 if (deleteSuccessful){
                                     Toast.makeText(context, "Student record was deleted.", Toast.LENGTH_SHORT).show();
-                                }else{
+                                }else {
                                     Toast.makeText(context, "Unable to delete student record.", Toast.LENGTH_SHORT).show();
                                 }
-
-                                ((MainActivity) context).countRecords();
-                                ((MainActivity) context).readRecords();
-
                             }
+                            countRecords();
+                            readRecords();
+
                             dialog.dismiss();
                         }
                     }).show();
@@ -181,13 +179,12 @@ public class MainActivity extends AppCompatActivity {
                                     }else{
                                         Toast.makeText(context, "Unable to update student record.", Toast.LENGTH_SHORT).show();
                                     }
-                                    ((MainActivity) context).countRecords();
-                                    ((MainActivity) context).readRecords();
+                                    countRecords();
+                                    readRecords();
                                     dialog.cancel();
                                 }
                             }).show();
         }
-
     }
 }
 
